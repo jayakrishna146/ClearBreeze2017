@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: raw
+    database: GLOBAL_LOGIC_DB
+    schema: landing
+    description: "Our raw table in Snowflake landing layer"
+    tables:
+      - name: source_raw
+
+        description: "{docs('CleanBreezetables')}"
+        columns:
+          - name: local
+            description: "Timestamp when the data was collected"
+            
+
+          - name: location
+            description: "Identifier for the location of data collection"
+            tests:
+              - not_null
+
+          - name: city
+            description: "City from where the data was collected"
+            tests:
+              - not_null
+
+          - name: country
+            description: "Country from where the data was collected"
+            tests:
+              - not_null
+
+          - name: parameter
+            description: "Type of pollutant measured"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['co','so2','no2','o3','pm10','pm25','bc']
+
+          - name: value
+            description: "Value of the pollutant"
+            tests:
+              - not_null
+
+          - name: unit
+            description: "Unit of measurement for the pollutant"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['µg/m³', 'ppm']
+
+          
