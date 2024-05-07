@@ -12,4 +12,4 @@ WITH x AS (
 
     FROM {{ ref('airquality') }}
 )
-SELECT * FROM x
+SELECT * FROM  x
