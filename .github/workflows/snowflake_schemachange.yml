@@ -37,7 +37,9 @@ jobs:
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_DATABASE: ${{ secrets.SNW_DATABASE }}
           SF_WAREHOUSE: ${{ secrets.SNW_WAREHOUSE }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SFW_PASSWORD }}  # Pass the Snowflake password as an environment variable
+          SNOWFLAKE_PASSWORD: ${{ secrets.SFW_PASSWORD }}
+          SF_SCHEMA: ${{secrets.SNW_SCHMA}}
+    # Pass the Snowflake password as an environment variable
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "Python Version:"
